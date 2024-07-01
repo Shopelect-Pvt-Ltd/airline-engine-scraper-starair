@@ -36,7 +36,6 @@ def process_each_message(message):
                 QueueUrl=engine_update_queue_url,
                 MessageBody=json.dumps(response)
             )
-            exit()
     except Exception as e:
         message = {
             "guid": guid,
@@ -49,7 +48,6 @@ def process_each_message(message):
             MessageBody=json.dumps(message)
         )
         logging.error(f"Error processing message for GUID: {guid}. Error: {str(e)}")
-        exit()
 
 def delete_messages(messages):
     for message in messages:
