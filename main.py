@@ -19,8 +19,8 @@ region_name='ap-south-1'
 sqs_client = boto3.client('sqs', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key, region_name=region_name)
 queue_url = os.getenv('AIRLINE_ENGINE_SCRAPER_INPUT_STARAIR_Q')
 engine_update_queue_url = os.getenv('AIRLINE_ENGINE_SCRAPER_OUTPUT_Q')
-max_messages = 1
-max_workers = 1
+max_messages = 10
+max_workers = 5
 
 def process_each_message(message):
     try:
